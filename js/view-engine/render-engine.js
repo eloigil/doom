@@ -17,15 +17,19 @@ class RenderEngine {
   }
 
   _draw () {
-    this.ctx.fillRect(
-      this.renderElements.players[0].position.x,
-      this.renderElements.players[0].position.y,
-      this.renderElements.players[0].size.x,
-      this.renderElements.players[0].size.y
-    );
+    for (let elements in this.renderElements) {
+      this.renderElements[elements].forEach(element => {
+        this.ctx.fillRect(
+          element.position.x,
+          element.position.y,
+          element.size.x,
+          element.size.y
+        );
+      });
+    }
   };
 
   _clearCanvas () {
-    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }

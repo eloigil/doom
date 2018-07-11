@@ -15,10 +15,11 @@ class Player {
       z: 0
     };
 
-    this._speed = 5;
+    this._speed = 1;
+    // @TODO this should be in trigonometric relationship with _speed for now x, y are 1
     this.speed = {
-      x: 0,
-      y: 0,
+      x: 1,
+      y: 1,
       z: 0
     };
 
@@ -35,23 +36,21 @@ class Player {
   move (eventKeys) {
     const events = eventKeys;
     this._updateSpeed(events);
-    this._updatePosition(this._updateSpeed(events));
+    // this._updatePosition(events);
   }
 
   _updateSpeed (events) {
-    // console.log(events);
-    this.speed.y -= events.w ? this._speed : 0;
-    this.speed.x += events.d ? this._speed : 0;
-    this.speed.y += events.s ? this._speed : 0;
-    this.speed.x -= events.a ? this._speed : 0;
-
-    return this.speed;
+    this.position.y -= (events.w ? this.speed.y : 0);
+    this.position.x += (events.d ? this.speed.x : 0);
+    this.position.y += (events.s ? this.speed.x : 0);
+    this.position.x -= (events.a ? this.speed.y : 0);
+    console.log(this.position);
   }
 
-  _updatePosition (speed) {
-    for (let axis in this.position) {
-      this.position[axis] += this.speed[axis];
-      // console.log(this.position[axis], this.speed[axis]);
-    }
-  }
+  // _updatePosition (speed) {
+  //   for (let axis in this.position) {
+  //     this.position[axis] += this.speed[axis];
+  //     console.log(this.position[axis], this.speed[axis]);
+  //   }
+  // }
 }

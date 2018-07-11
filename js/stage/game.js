@@ -12,6 +12,9 @@ class Game {
     this.DefaultRenderEngine = RenderEngine;
     this.renderEngine = null;
 
+    // key handler
+    this.keyHandler = null;
+
     // players settings
     this.playersNumber = 1;
     this.players = [];
@@ -24,6 +27,7 @@ class Game {
     this._setRenderEngine();
     this._createPlayers();
 
+    this.keyHandler = new KeyHandler();
     this.renderEngine.frame();
   }
 

@@ -10,8 +10,8 @@ class Player {
     };
 
     this.size = {
-      x: 100,
-      y: 20,
+      x: 30,
+      y: 90,
       z: 0
     };
 
@@ -31,26 +31,20 @@ class Player {
         z: 0
       }
     };
+
+    this.angle = -90;
   }
 
   move (eventKeys) {
     const events = eventKeys;
-    this._updateSpeed(events);
-    // this._updatePosition(events);
+
+    this._updatePosition(events);
   }
 
-  _updateSpeed (events) {
-    this.position.y -= (events.w ? this.speed.y : 0);
-    this.position.x += (events.d ? this.speed.x : 0);
-    this.position.y += (events.s ? this.speed.x : 0);
-    this.position.x -= (events.a ? this.speed.y : 0);
-    console.log(this.position);
+  _updatePosition (events) {
+    this.position.x += (events.forwards ? this.speed.y : 0);
+    this.position.y += (events.rightwards ? this.speed.x : 0);
+    this.position.x -= (events.backwards ? this.speed.x : 0);
+    this.position.y -= (events.leftwards ? this.speed.y : 0);
   }
-
-  // _updatePosition (speed) {
-  //   for (let axis in this.position) {
-  //     this.position[axis] += this.speed[axis];
-  //     console.log(this.position[axis], this.speed[axis]);
-  //   }
-  // }
 }

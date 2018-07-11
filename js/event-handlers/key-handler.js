@@ -3,10 +3,10 @@
 class KeyHandler {
   constructor (ctx, canvas) {
     this.keyStatus = {
-      w: false,
-      d: false,
-      s: false,
-      a: false
+      forwards: false,
+      rightwards: false,
+      backwards: false,
+      leftwards: false
     };
 
     this._addKeyDownEvent();
@@ -24,16 +24,16 @@ class KeyHandler {
   _handleKeyDown (event) {
     switch (event.key) {
     case 'w':
-      this.keyStatus.w = true;
+      this.keyStatus.forwards = true;
       break;
-    case 'd':
-      this.keyStatus.d = true;
+    case 'e':
+      this.keyStatus.rightwards = true;
       break;
     case 's':
-      this.keyStatus.s = true;
+      this.keyStatus.backwards = true;
       break;
-    case 'a':
-      this.keyStatus.a = true;
+    case 'q':
+      this.keyStatus.leftwards = true;
       break;
     }
   }
@@ -41,16 +41,16 @@ class KeyHandler {
   _handleKeyUp (event) {
     switch (event.key) {
     case 'w':
-      this.keyStatus.w = false;
+      this.keyStatus.forwards = false;
       break;
-    case 'd':
-      this.keyStatus.d = false;
+    case 'e':
+      this.keyStatus.rightwards = false;
       break;
     case 's':
-      this.keyStatus.s = false;
+      this.keyStatus.backwards = false;
       break;
-    case 'a':
-      this.keyStatus.a = false;
+    case 'q':
+      this.keyStatus.leftwards = false;
       break;
     }
   }

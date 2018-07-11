@@ -6,7 +6,9 @@ class KeyHandler {
       forwards: false,
       rightwards: false,
       backwards: false,
-      leftwards: false
+      leftwards: false,
+      turnRight: false,
+      turnLeft: false
     };
 
     this._addKeyDownEvent();
@@ -35,6 +37,12 @@ class KeyHandler {
     case 'q':
       this.keyStatus.leftwards = true;
       break;
+    case 'd':
+      this.keyStatus.turnRight = true;
+      break;
+    case 'a':
+      this.keyStatus.turnLeft = true;
+      break;
     }
   }
 
@@ -51,6 +59,12 @@ class KeyHandler {
       break;
     case 'q':
       this.keyStatus.leftwards = false;
+      break;
+    case 'd':
+      this.keyStatus.turnRight = false;
+      break;
+    case 'a':
+      this.keyStatus.turnLeft = false;
       break;
     }
   }

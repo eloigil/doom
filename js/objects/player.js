@@ -33,6 +33,7 @@ class Player {
     };
 
     this.angle = -90;
+    this._angularSpeed = 5;
   }
 
   move (eventKeys) {
@@ -46,5 +47,9 @@ class Player {
     this.position.y += (events.rightwards ? this.speed.x : 0);
     this.position.x -= (events.backwards ? this.speed.x : 0);
     this.position.y -= (events.leftwards ? this.speed.y : 0);
+
+    // update angle also
+    this.angle += (events.turnRight ? this.speed.x : 0);
+    this.angle -= (events.turnLeft ? this.speed.y : 0);
   }
 }

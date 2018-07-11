@@ -8,8 +8,6 @@ function Game(canvas, width, height) {
 
     self.resize(width, height);
 
-
-    self.splash();
     self.draw();
 }
 
@@ -23,13 +21,13 @@ Game.prototype.resize = function (width, height) {
 };
 
 
-Game.prototype.draw = function () {
+Game.prototype._draw = function () {
     var self = this;
 
     self.ctx.clearRect(0, 0, self.width, self.height);
     self.stage.draw();
 
     window.requestAnimationFrame(function () {
-        self.draw();
+        self._draw();
     });
 };

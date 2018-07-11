@@ -2,7 +2,7 @@
 
 class KeyHandler {
   constructor (ctx, canvas) {
-    this.keys = {
+    this.keyStatus = {
       w: false,
       d: false,
       s: false,
@@ -24,16 +24,16 @@ class KeyHandler {
   _handleKeyDown (event) {
     switch (event.key) {
     case 'w':
-      this.keys.w = true;
+      this.keyStatus.w = true;
       break;
     case 'd':
-      this.keys.d = true;
+      this.keyStatus.d = true;
       break;
     case 's':
-      this.keys.s = true;
+      this.keyStatus.s = true;
       break;
     case 'a':
-      this.keys.a = true;
+      this.keyStatus.a = true;
       break;
     }
   }
@@ -41,16 +41,16 @@ class KeyHandler {
   _handleKeyUp (event) {
     switch (event.key) {
     case 'w':
-      this.keys.w = false;
+      this.keyStatus.w = false;
       break;
     case 'd':
-      this.keys.d = false;
+      this.keyStatus.d = false;
       break;
     case 's':
-      this.keys.s = false;
+      this.keyStatus.s = false;
       break;
     case 'a':
-      this.keys.a = false;
+      this.keyStatus.a = false;
       break;
     }
   }

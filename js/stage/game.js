@@ -8,26 +8,32 @@ class Game {
     this.width = width;
     this.height = height;
 
+    // renderer settings
+    this.DefaultRenderEngine = RenderEngine;
+    this.renderEngine = null;
+
+    // players settings
+    this.playersNumber = 1;
+    this.players = [];
+
     this._init();
   }
 
   _init () {
     this._resize(this.width, this.height);
+    this._setRenderEngine();
+
+    this.renderEngine.frame();
   }
 
   _resize (width, height) {
-    this.ctx.canvas.width = width;
-    this.ctx.canvas.height = height;
+    this.canvas.width = width;
+    this.canvas.height = height;
     this.width = width;
     this.height = height;
   };
 
-  _draw () {
-    this.ctx.clearRect(0, 0, this.width, this.height);
-    this.stage.draw();
-
-    window.requestAnimationFrame(function () {
-      this._draw();
-    });
-  };
+  _setRenderEngine (renderEngine) {
+    this.renderEngine = renderEngine || new this.DefaultRenderEngine(this.ctx, this.canvas);
+  }
 }

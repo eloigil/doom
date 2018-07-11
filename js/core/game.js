@@ -70,7 +70,7 @@ class Game {
 
     // here it goes all the movement updates
     self.players.forEach(player => {
-      console.log(self.keyHandler.keyStatus);
+      player.move(self.keyHandler.keyStatus);
     });
   }
 }

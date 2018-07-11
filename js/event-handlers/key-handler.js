@@ -18,7 +18,7 @@ class KeyHandler {
   }
 
   _addKeyUpEvent () {
-    window.addEventListener('keydown', this._handleKeyUp.bind(this));
+    window.addEventListener('keyup', this._handleKeyUp.bind(this));
   }
 
   _handleKeyDown (event) {

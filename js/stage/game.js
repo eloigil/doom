@@ -36,4 +36,10 @@ class Game {
   _setRenderEngine (renderEngine) {
     this.renderEngine = renderEngine || new this.DefaultRenderEngine(this.ctx, this.canvas);
   }
+
+  _createPlayers () {
+    for (let ix = 0; ix < this.playersNumber; ix++) {
+      this.players.push(new Player());
+    }
+  }
 }

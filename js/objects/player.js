@@ -2,6 +2,7 @@
 
 class Player {
   constructor (canvas) {
+    // player settings
     this.position = {
       x: 0,
       y: 0,
@@ -9,8 +10,8 @@ class Player {
     };
 
     this.size = {
-      x: 0,
-      y: 0,
+      x: 100,
+      y: 20,
       z: 0
     };
     this.view = {

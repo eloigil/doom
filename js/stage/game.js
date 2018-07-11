@@ -22,6 +22,7 @@ class Game {
   _init () {
     this._resize(this.width, this.height);
     this._setRenderEngine();
+    this._createPlayers();
 
     this.renderEngine.frame();
   }
@@ -38,8 +39,12 @@ class Game {
   }
 
   _createPlayers () {
+    // creates all new players
     for (let ix = 0; ix < this.playersNumber; ix++) {
       this.players.push(new Player());
     }
+
+    // updates renderelements
+    this.renderEngine.renderElements['players'] = this.players;
   }
 }

@@ -4,8 +4,8 @@ class Player {
   constructor (canvas) {
     // player settings
     this.position = {
-      x: 0,
-      y: 0,
+      x: 200,
+      y: 100,
       z: 0
     };
 
@@ -32,7 +32,7 @@ class Player {
       }
     };
 
-    this.angle = -90;
+    this.angle = 0;
     this._angularSpeed = 5;
   }
 
@@ -49,7 +49,7 @@ class Player {
     this.position.y -= (events.leftwards ? this.speed.y : 0);
 
     // update angle also
-    this.angle += (events.turnRight ? this.speed.x : 0);
-    this.angle -= (events.turnLeft ? this.speed.y : 0);
+    this.angle += (events.turnRight ? this._angularSpeed : 0);
+    this.angle -= (events.turnLeft ? this._angularSpeed : 0);
   }
 }

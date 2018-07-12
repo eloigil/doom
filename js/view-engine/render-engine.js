@@ -26,14 +26,35 @@ class RenderEngine {
 
   _drawElement (element) {
     // drawing from the position center of the element
-    const leftEdge = element.position.x - element.size.x / 2;
-    const topEdge = element.position.y - element.size.y / 2;
+    const leftEdge = -element.size.x / 2;
+    const topEdge = -element.size.y / 2;
 
-    this.ctx.fillRect(leftEdge,
+    this.ctx.save();
+
+    this._setPointerToCenter(element.position);
+    this._setRotation(element.angle);
+
+    this.ctx.fillRect(
+      leftEdge,
       topEdge,
       element.size.x,
       element.size.y
     );
+
+    this.ctx.restore();
+  }
+
+  _setPointerToCenter (position) {
+    this.ctx.translate(position.x, position.y);
+  }
+
+  _setRotation (angle, position) {
+    this.ctx.rotate(this._toRadians(angle));
+  }
+
+  _toRadians (angle) {
+    const angleInRadians = angle * 2 * Math.PI / 360;
+    return angleInRadians;
   }
 
   _clearCanvas () {

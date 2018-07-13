@@ -18,6 +18,7 @@ class Time {
   _updateCounter () {
     this.counter++;
     // passing game ctx as a parameter as I don't know how to bind to the ctx where the cb is declared
+
     this.callback(this.gameCtx);
   }
 

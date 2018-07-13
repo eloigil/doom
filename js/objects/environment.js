@@ -2,7 +2,7 @@
 
 class EnvironmentBox {
   constructor (size, x, y, z) {
-    this.type = 'enviromentBox';
+    this.type = 'environmentBox';
     this.position = {
       x: x,
       y: y,

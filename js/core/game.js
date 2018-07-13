@@ -24,7 +24,7 @@ class Game {
     this.players = [];
 
     // environmentBox settings
-    this.boxSize = canvas.width / 100;
+    this.boxSize = this.width / 25;
     this.environmentBoxes = [];
 
     // camera settings
@@ -66,8 +66,9 @@ class Game {
   }
 
   _createEnvironment () {
-    for (let ix = 0; ix < this.width; ix += this.boxSize) {
-      for (let jx = 0; jx < this.height; jx += this.boxSize) {
+    for (let jx = 0; jx <= this.height; jx += this.boxSize) {
+      let increase = (jx === 0 || jx >= this.height - this.boxSize) ? this.boxSize : this.width;
+      for (let ix = 0; ix <= this.width + this.boxSize; ix += increase) {
         this._createEnvironmentBox(this.boxSize, ix, jx);
       }
     }
@@ -91,7 +92,6 @@ class Game {
 
   timeFrame (ctx) {
     const self = ctx;
-
     // here it goes all the movement updates
     self.players.forEach(player => {
       player.move(self.keyHandler.keyStatus);

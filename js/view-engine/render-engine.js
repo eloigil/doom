@@ -54,10 +54,10 @@ class RenderEngine {
     this.ctx.restore();
   }
 
-  _drawEnvironmentBox () {
+  _drawEnvironmentBox (element) {
     // drawing from the position center of the element
-    const leftEdge = -element.size.x / 2;
-    const topEdge = -element.size.y / 2;
+    const leftEdge = -element.size / 2;
+    const topEdge = -element.size / 2;
 
     this.ctx.save();
 
@@ -68,8 +68,8 @@ class RenderEngine {
     this.ctx.fillRect(
       leftEdge,
       topEdge,
-      element.size.x,
-      element.size.y
+      element.size,
+      element.size
     );
 
     this.ctx.restore();

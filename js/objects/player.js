@@ -2,6 +2,7 @@
 
 class Player {
   constructor (canvas) {
+    this.type = 'player';
     // player settings
     this.position = {
       x: 200,
@@ -15,7 +16,7 @@ class Player {
       z: 0
     };
 
-    this._speed = 1;
+    this._speed = 2;
     // @TODO this should be in trigonometric relationship with _speed for now x, y are 1
     this.speed = {
       x: this._speed * Math.cos(this._toRadians(this.angle)),
@@ -23,23 +24,17 @@ class Player {
       z: 0
     };
 
-    this.view = {
-      cameraId: null,
-      placement: {
-        x: 0,
-        y: 0,
-        z: 0
-      }
-    };
-
     this.angle = 0;
     this._angularSpeed = 3;
+
+    this.camera = new Camera(this.ctx, this.position, this.angle);
   }
 
   move (eventKeys) {
     const events = eventKeys;
 
     this._updatePosition(events);
+    this._updateCameraPosition();
   }
 
   _updatePosition (events) {
@@ -61,6 +56,11 @@ class Player {
 
     this.speed.x = this._speed * Math.cos(this._toRadians(this.angle));
     this.speed.y = this._speed * Math.sin(this._toRadians(this.angle));
+  }
+
+  _updateCameraPosition () {
+    this.camera.position = this.position;
+    this.camera.angle = this.angle;
   }
 
   _toRadians (angle) {

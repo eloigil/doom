@@ -17,11 +17,12 @@ class Ray {
   }
 
   _update () {
-    this._move();
+    this._updatePosition();
     this._update();
   }
 
-  _move () {
-
+  _updatePosition () {
+    this.position.x += this.speed.x;
+    this.position.y += this.speed.y;
   }
 }

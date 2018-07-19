@@ -6,6 +6,7 @@ class Ray {
     this.position = position;
     this.angle = angle;
 
+    this._speed = 10;
     this.speed = {
       x: this._speed * Math.cos(toRadians(this.angle)),
       y: this._speed * Math.sin(toRadians(this.angle)),
@@ -13,12 +14,13 @@ class Ray {
     };
 
     this.distance = 0;
+    this.collided = false;
   }
 
   _update () {
     this._updatePosition();
 
-    this._update();
+    !this.collided ? this._update() : this._end();
   }
 
   _updatePosition () {
@@ -26,7 +28,11 @@ class Ray {
     this.position.y += this.speed.y;
   }
 
-  _updateDistance () {
+  _calcDistance () {
     this.distance = Math.sqrt(Math.pow(this.position.x - this.startPosition.x) + Math.pow(this.position.y - this.startPosition.y));
+  }
+
+  _end () {
+    this._calcDistance();
   }
 }

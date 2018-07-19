@@ -8,17 +8,12 @@ class Camera {
     this.cameraId = null;
 
     this.position = position;
-    this.angle = angle;
+    this.angle = toRadians(angle);
 
     this.viewRange = 120;
   }
 
-  _toRadians (angle) {
-    const angleInRadians = angle * 2 * Math.PI / 360;
-    return angleInRadians;
-  }
-
-  _generateRay () {
+  _createRay () {
 
   }
 }

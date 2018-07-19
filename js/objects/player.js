@@ -19,8 +19,8 @@ class Player {
     this._speed = 2;
     // @TODO this should be in trigonometric relationship with _speed for now x, y are 1
     this.speed = {
-      x: this._speed * Math.cos(this._toRadians(this.angle)),
-      y: this._speed * Math.sin(this._toRadians(this.angle)),
+      x: this._speed * Math.cos(toRadians(this.angle)),
+      y: this._speed * Math.sin(toRadians(this.angle)),
       z: 0
     };
 
@@ -54,17 +54,12 @@ class Player {
     this.angle += (events.turnRight ? this._angularSpeed : 0);
     this.angle -= (events.turnLeft ? this._angularSpeed : 0);
 
-    this.speed.x = this._speed * Math.cos(this._toRadians(this.angle));
-    this.speed.y = this._speed * Math.sin(this._toRadians(this.angle));
+    this.speed.x = this._speed * Math.cos(toRadians(this.angle));
+    this.speed.y = this._speed * Math.sin(toRadians(this.angle));
   }
 
   _updateCameraPosition () {
     this.camera.position = this.position;
     this.camera.angle = this.angle;
-  }
-
-  _toRadians (angle) {
-    const angleInRadians = angle * 2 * Math.PI / 360;
-    return angleInRadians;
   }
 }

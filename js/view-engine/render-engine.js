@@ -78,11 +78,11 @@ class RenderEngine {
   _drawCamera (element) {
     this.ctx.beginPath();
     this.ctx.moveTo(element.position.x, element.position.y);
-    this.ctx.lineTo(element.position.x + 1000 * Math.cos(element._toRadians(element.angle - element.viewRange / 2)), element.position.y + 1000 * Math.sin(element._toRadians(element.angle - element.viewRange / 2)));
+    this.ctx.lineTo(element.position.x + 1000 * Math.cos(toRadians(element.angle - element.viewRange / 2)), element.position.y + 1000 * Math.sin(toRadians(element.angle - element.viewRange / 2)));
     this.ctx.stroke();
 
     this.ctx.moveTo(element.position.x, element.position.y);
-    this.ctx.lineTo(element.position.x + 1000 * Math.cos(element._toRadians(element.angle + element.viewRange / 2)), element.position.y + 1000 * Math.sin(element._toRadians(element.angle + element.viewRange / 2)));
+    this.ctx.lineTo(element.position.x + 1000 * Math.cos(toRadians(element.angle + element.viewRange / 2)), element.position.y + 1000 * Math.sin(toRadians(element.angle + element.viewRange / 2)));
     this.ctx.stroke();
   }
 
@@ -91,7 +91,7 @@ class RenderEngine {
   }
 
   _setRotation (angle, position) {
-    this.ctx.rotate(this._toRadians(angle));
+    this.ctx.rotate(toRadians(angle));
   }
 
   _clearCanvas () {

@@ -1,6 +1,6 @@
 'use strict';
 
-class RayTracing {
+class Ray {
   constructor (ctx, position, angle) {
     this.angle = angle;
     this.position = position;

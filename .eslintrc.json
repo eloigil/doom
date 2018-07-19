@@ -12,7 +12,8 @@
       "Time": false,
       "Player": false,
       "RenderEngine": false,
-      "KeyHandler": false
+      "KeyHandler": false,
+      "toRadians": false
     },
     "rules": {
       "indent": [
